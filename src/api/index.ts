@@ -1,0 +1,1 @@
+export { getShows } from "./getShows";
