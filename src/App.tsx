@@ -1,7 +1,11 @@
+import { AutoComplete } from "./components/autocomplete";
+
 const App = () => {
   return (
-    <div>App</div>
-  )
-}
+    <div className="container">
+      <AutoComplete />
+    </div>
+  );
+};
 
-export default App
+export default App;

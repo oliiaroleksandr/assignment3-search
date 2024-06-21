@@ -1,0 +1,43 @@
+.autocomplete {
+  position: relative;
+}
+
+.autocomplete__input {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1.5px solid #ccc;
+  padding: 0.7rem 1rem;
+  height: 2.5rem;
+}
+
+.autocomplete__input input {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.autocomplete__input input::placeholder {
+  color: #ccc;
+}
+
+.autocomplete__input button {
+  color: #ccc;
+  transition: color 0.1s linear;
+  font-size: 18px;
+}
+
+.autocomplete__input button:hover {
+  color: #000;
+}
+
+.autocomplete__body {
+  position: absolute;
+  top: 3rem;
+  left: 0;
+  width: 100%;
+  height: 15rem;
+  border: 1.5px solid #ccc;
+  padding: 0.7rem 1rem;
+}
