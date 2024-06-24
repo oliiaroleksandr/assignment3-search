@@ -1,4 +1,4 @@
-import { Comment, useCommentsStore } from "../../../store";
+import { Comment, useCommentsStore } from "@/store";
 
 import "./SearchHistoryItem.css";
 

@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { AutocompleteItem } from "../autocompleteItem";
 import { getComments } from "../api";
-import { useCommentsStore } from "../../../store";
+import { useCommentsStore } from "@/store";
 
 import "./AutocompleteList.css";
 

@@ -1,4 +1,4 @@
-import { useCommentsStore } from "../../../store";
+import { useCommentsStore } from "@/store";
 
 import "./AutocompleteItem.css";
 
