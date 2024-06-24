@@ -1,12 +1,13 @@
-import { Show } from "../types";
-
 const prepareUrl = (query: string) => {
   const url = `http://api.tvmaze.com/search/shows?q=${query}`;
   return encodeURI(url);
 };
 
 type ResponseShow = {
-  show: Show;
+  show: {
+    id: number;
+    name: string;
+  };
 };
 
 export const getShows = async (query: string) => {

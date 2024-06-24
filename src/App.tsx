@@ -1,10 +1,11 @@
-import { AutoComplete } from "./components/autocomplete";
+import { AutoComplete, SearchHistory } from "./components";
 
 const App = () => {
   return (
     <div className="container">
-      <h1 className="heading-1">Swapi Search</h1>
+      <h1 className="heading-1">Tv Shows Search</h1>
       <AutoComplete />
+      <SearchHistory />
     </div>
   );
 };

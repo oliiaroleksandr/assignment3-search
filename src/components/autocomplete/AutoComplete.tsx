@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { useDebouncedValue } from "../../hooks";
+import { useDebouncedValue } from "./hooks";
 import { useClickOutside } from "react-click-outside-hook";
-import { ShowsList } from "../showsList";
+import { AutocompleteList } from "./autocompleteList";
 
 import "./AutoComplete.css";
 
@@ -38,7 +38,7 @@ const AutoComplete = () => {
           isExtended ? "autocomplete__body_extended" : ""
         }`}
       >
-        <ShowsList query={debouncedSearch} />
+        <AutocompleteList query={debouncedSearch} />
       </div>
     </div>
   );

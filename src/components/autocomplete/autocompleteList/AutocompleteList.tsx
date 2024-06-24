@@ -1,13 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
-import { getShows } from "../../api";
+import { getShows } from "../api";
+import { AutocompleteItem } from "../autocompleteItem";
+import { useShowsStore } from "../../../store";
 
-import "./ShowsList.css";
+import "./AutocompleteList.css";
 
 type Props = {
   query: string;
 };
 
 const ShowsList = ({ query }: Props) => {
+  const { shows: savedShows } = useShowsStore();
+
   const {
     data: shows,
     isLoading,
@@ -15,6 +19,15 @@ const ShowsList = ({ query }: Props) => {
   } = useQuery({
     queryKey: ["shows", query],
     queryFn: () => getShows(query),
+    select: (data) => {
+      return data.filter((show) => {
+        if (savedShows.find((savedShow) => savedShow.id === show.id)) {
+          return false;
+        }
+
+        return true;
+      });
+    },
   });
 
   if (query.length === 0) return <p className="message">Enter search query</p>;
@@ -26,16 +39,7 @@ const ShowsList = ({ query }: Props) => {
   return (
     <>
       {shows.map((show) => (
-        <div
-          key={show.id}
-          className="show-item"
-          dangerouslySetInnerHTML={{
-            __html: show.name.replace(
-              new RegExp(query, "gi"),
-              `<b>${query}</b>`
-            ),
-          }}
-        />
+        <AutocompleteItem key={show.id} {...show} query={query} />
       ))}
     </>
   );

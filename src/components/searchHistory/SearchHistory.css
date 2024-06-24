@@ -1,0 +1,20 @@
+.search-history {
+  padding-top: 1rem;
+}
+
+.search-history__heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #dedede;
+}
+
+.search-history__heading button {
+  color: #aaaaaa;
+  transition: color 0.1s linear;
+}
+
+.search-history__heading button:hover {
+  color: black;
+}
