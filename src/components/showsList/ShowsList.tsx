@@ -1,4 +1,5 @@
-import { useShows } from "../../hooks";
+import { useQuery } from "@tanstack/react-query";
+import { getShows } from "../../api";
 
 import "./ShowsList.css";
 
@@ -7,12 +8,20 @@ type Props = {
 };
 
 const ShowsList = ({ query }: Props) => {
-  const { shows, isLoading, error } = useShows(query);
+  const {
+    data: shows,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["shows", query],
+    queryFn: () => getShows(query),
+  });
 
   if (query.length === 0) return <p className="message">Enter search query</p>;
   if (isLoading) return <p className="message">Loading...</p>;
-  if (error) return <p className="message message_error">{error}</p>;
-  if (!shows.length) return <p className="message">No shows found</p>;
+  if (error) return <p className="message message_error">{error.message}</p>;
+  if (!shows || shows.length < 1)
+    return <p className="message">No shows found</p>;
 
   return (
     <>

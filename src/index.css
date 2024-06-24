@@ -28,3 +28,12 @@ button {
   font-size: 1.8rem;
   margin-bottom: 1rem;
 }
+
+input:focus::placeholder {
+  opacity: 0;
+}
+
+input::placeholder {
+  color: #ccc;
+  transition: opacity 0.2s linear;
+}
