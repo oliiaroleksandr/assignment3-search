@@ -8,7 +8,7 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 button {
@@ -18,7 +18,13 @@ button {
 }
 
 .container {
-  max-width: 25rem;
+  max-width: 28rem;
   margin: 0 auto;
-  padding-top: 5rem;
+  padding: 5rem 0.5rem;
+}
+
+.heading-1 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
 }

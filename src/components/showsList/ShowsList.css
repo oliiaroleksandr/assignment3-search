@@ -14,3 +14,12 @@
 .message_error {
   color: red;
 }
+
+.show-item {
+  padding: 0.4rem 1rem;
+}
+
+.show-item:hover {
+  background-color: lightgray;
+  cursor: pointer;
+}

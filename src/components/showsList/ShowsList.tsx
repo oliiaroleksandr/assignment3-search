@@ -15,11 +15,20 @@ const ShowsList = ({ query }: Props) => {
   if (!shows.length) return <p className="message">No shows found</p>;
 
   return (
-    <div className="shows-list">
+    <>
       {shows.map((show) => (
-        <div key={show.id}>{show.name}</div>
+        <div
+          key={show.id}
+          className="show-item"
+          dangerouslySetInnerHTML={{
+            __html: show.name.replace(
+              new RegExp(query, "gi"),
+              `<b>${query}</b>`
+            ),
+          }}
+        />
       ))}
-    </div>
+    </>
   );
 };
 
