@@ -10,13 +10,13 @@ const SearchHistoryItem = ({ id, email, timeStamp }: Comment) => {
   };
 
   return (
-    <div className="search-history__item">
+    <li className="search-history__item">
       <h4>{email}</h4>
       <p>{timeStamp.toLocaleString()}</p>
       <button onClick={handleClick} aria-label="Remove">
         X
       </button>
-    </div>
+    </li>
   );
 };
 

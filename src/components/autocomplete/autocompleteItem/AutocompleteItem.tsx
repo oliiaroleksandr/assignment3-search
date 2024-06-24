@@ -15,14 +15,22 @@ const AutocompleteItem = ({ id, email, query }: Props) => {
     addComment({ email, id, timeStamp: new Date() });
   };
 
+  const getHighlightedEmail = (email: string, query: string) => {
+    const matchedText = email.substring(0, query.length);
+    const restOfText = email.substring(query.length);
+
+    return (
+      <>
+        <b>{matchedText}</b>
+        {restOfText}
+      </>
+    );
+  };
+
   return (
-    <div
-      onClick={handleClick}
-      className="show-item"
-      dangerouslySetInnerHTML={{
-        __html: email.replace(new RegExp(query, "gi"), `<b>${query}</b>`),
-      }}
-    />
+    <li onClick={handleClick} className="show-item">
+      {getHighlightedEmail(email, query)}
+    </li>
   );
 };
 

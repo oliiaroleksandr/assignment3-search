@@ -16,11 +16,11 @@ const SearchHistory = () => {
         <h3>Search History</h3>
         <button onClick={clear}>Clear search history</button>
       </div>
-      <div>
+      <ul>
         {comments.map((comment) => (
           <SearchHistoryItem key={comment.id} {...comment} />
         ))}
-      </div>
+      </ul>
     </div>
   );
 };
