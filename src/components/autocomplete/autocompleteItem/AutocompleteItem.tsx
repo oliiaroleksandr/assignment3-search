@@ -1,18 +1,18 @@
-import { useShowsStore } from "../../../store";
+import { useCommentsStore } from "../../../store";
 
 import "./AutocompleteItem.css";
 
 type Props = {
   id: number;
-  name: string;
+  email: string;
   query: string;
 };
 
-const AutocompleteItem = ({ id, name, query }: Props) => {
-  const { addShow } = useShowsStore();
+const AutocompleteItem = ({ id, email, query }: Props) => {
+  const { addComment } = useCommentsStore();
 
   const handleClick = () => {
-    addShow({ name, id, timeStamp: new Date() });
+    addComment({ email, id, timeStamp: new Date() });
   };
 
   return (
@@ -20,7 +20,7 @@ const AutocompleteItem = ({ id, name, query }: Props) => {
       onClick={handleClick}
       className="show-item"
       dangerouslySetInnerHTML={{
-        __html: name.replace(new RegExp(query, "gi"), `<b>${query}</b>`),
+        __html: email.replace(new RegExp(query, "gi"), `<b>${query}</b>`),
       }}
     />
   );

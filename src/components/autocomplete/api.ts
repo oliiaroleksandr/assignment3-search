@@ -1,27 +1,22 @@
-const prepareUrl = (query: string) => {
-  const url = `http://api.tvmaze.com/search/shows?q=${query}`;
-  return encodeURI(url);
+type Comment = {
+  id: number;
+  email: string;
 };
 
-type ResponseShow = {
-  show: {
-    id: number;
-    name: string;
-  };
-};
-
-export const getShows = async (query: string) => {
+export const getComments = async (query: string) => {
   try {
-    const response = await fetch(prepareUrl(query));
+    const response = await fetch(
+      `https://jsonplaceholder.typicode.com/comments?email_like=^${query}&_limit=10`
+    );
 
     if (!response.ok) {
-      throw new Error("Failed to fetch shows");
+      throw new Error("Failed to get comments");
     }
 
-    const result: ResponseShow[] = await response.json();
-    return result.map(({ show }) => show);
+    const result: Comment[] = await response.json();
+    return result;
   } catch (error) {
     console.log(error);
-    throw new Error("Failed to fetch shows");
+    throw new Error("Failed to get comments");
   }
 };

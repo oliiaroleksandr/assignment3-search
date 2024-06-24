@@ -1,1 +1,1 @@
-export * from "./showsStore";
+export * from "./commentsStore";

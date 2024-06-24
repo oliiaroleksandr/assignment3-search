@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import { getShows } from "../api";
 import { AutocompleteItem } from "../autocompleteItem";
-import { useShowsStore } from "../../../store";
+import { getComments } from "../api";
+import { useCommentsStore } from "../../../store";
 
 import "./AutocompleteList.css";
 
@@ -9,19 +9,19 @@ type Props = {
   query: string;
 };
 
-const ShowsList = ({ query }: Props) => {
-  const { shows: savedShows } = useShowsStore();
+const AutocompleteList = ({ query }: Props) => {
+  const { comments: savedComments } = useCommentsStore();
 
   const {
     data: shows,
     isLoading,
     error,
   } = useQuery({
-    queryKey: ["shows", query],
-    queryFn: () => getShows(query),
+    queryKey: ["comments", query],
+    queryFn: () => getComments(query),
     select: (data) => {
       return data.filter((show) => {
-        if (savedShows.find((savedShow) => savedShow.id === show.id)) {
+        if (savedComments.find((savedComment) => savedComment.id === show.id)) {
           return false;
         }
 
@@ -34,7 +34,7 @@ const ShowsList = ({ query }: Props) => {
   if (isLoading) return <p className="message">Loading...</p>;
   if (error) return <p className="message message_error">{error.message}</p>;
   if (!shows || shows.length < 1)
-    return <p className="message">No shows found</p>;
+    return <p className="message">No comments found</p>;
 
   return (
     <>
@@ -45,4 +45,4 @@ const ShowsList = ({ query }: Props) => {
   );
 };
 
-export default ShowsList;
+export default AutocompleteList;

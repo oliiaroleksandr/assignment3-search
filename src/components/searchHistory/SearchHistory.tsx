@@ -1,12 +1,12 @@
-import { useShowsStore } from "../../store";
+import { useCommentsStore } from "../../store";
 import { SearchHistoryItem } from "./searchHistoryItem";
 
 import "./SearchHistory.css";
 
 const SearchHistory = () => {
-  const { shows, clear } = useShowsStore();
+  const { comments, clear } = useCommentsStore();
 
-  if (shows.length === 0) {
+  if (comments.length === 0) {
     return null;
   }
 
@@ -17,8 +17,8 @@ const SearchHistory = () => {
         <button onClick={clear}>Clear search history</button>
       </div>
       <div>
-        {shows.map((show) => (
-          <SearchHistoryItem key={show.id} {...show} />
+        {comments.map((comment) => (
+          <SearchHistoryItem key={comment.id} {...comment} />
         ))}
       </div>
     </div>
