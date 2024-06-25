@@ -4,7 +4,7 @@ import { persist, createJSONStorage } from "zustand/middleware";
 export type Comment = {
   id: number;
   email: string;
-  timeStamp: Date;
+  timeStamp: string;
 };
 
 type Store = {

@@ -13,7 +13,7 @@ const SearchHistory = () => {
   return (
     <div className="search-history">
       <div className="search-history__heading">
-        <h3>Search History</h3>
+        <h2>Search History</h2>
         <button onClick={clear}>Clear search history</button>
       </div>
       <ul>

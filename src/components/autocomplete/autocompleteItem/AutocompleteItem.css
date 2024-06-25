@@ -1,8 +1,9 @@
 .show-item {
   padding: 0.4rem 1rem;
+  transition: background-color 0.1s linear;
 }
 
 .show-item:hover {
-  background-color: lightgray;
+  background-color: rgb(232, 232, 232);
   cursor: pointer;
 }

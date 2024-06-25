@@ -1,5 +1,5 @@
 .search-history {
-  padding-top: 1rem;
+  padding-top: 1.5rem;
 }
 
 .search-history__heading {
@@ -10,8 +10,12 @@
   border-bottom: 1px solid #dedede;
 }
 
+.search-history__heading h2 {
+  font-size: 1.25rem;
+}
+
 .search-history__heading button {
-  color: #aaaaaa;
+  color: #7b7b7b;
   transition: color 0.1s linear;
 }
 

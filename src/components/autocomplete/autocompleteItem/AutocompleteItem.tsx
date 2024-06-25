@@ -1,10 +1,9 @@
 import { useCommentsStore } from "@/store";
+import { ApiComment } from "../api";
 
 import "./AutocompleteItem.css";
 
-type Props = {
-  id: number;
-  email: string;
+type Props = ApiComment & {
   query: string;
 };
 
@@ -12,17 +11,17 @@ const AutocompleteItem = ({ id, email, query }: Props) => {
   const { addComment } = useCommentsStore();
 
   const handleClick = () => {
-    addComment({ email, id, timeStamp: new Date() });
+    addComment({ email, id, timeStamp: new Date().toLocaleString() });
   };
 
   const getHighlightedEmail = (email: string, query: string) => {
     const matchedText = email.substring(0, query.length);
-    const restOfText = email.substring(query.length);
+    const restOfEmail = email.substring(query.length);
 
     return (
       <>
         <b>{matchedText}</b>
-        {restOfText}
+        {restOfEmail}
       </>
     );
   };

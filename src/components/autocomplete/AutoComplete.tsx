@@ -24,10 +24,13 @@ const AutoComplete = () => {
   return (
     <div className="autocomplete" ref={ref}>
       <div className="autocomplete__input">
+        <label htmlFor="search">Search</label>
         <input
+          id="search"
           placeholder="Search..."
           type="text"
           value={search}
+          autoComplete="off"
           onChange={(e) => setSearch(e.target.value)}
           onFocus={() => setIsExtended(true)}
         />

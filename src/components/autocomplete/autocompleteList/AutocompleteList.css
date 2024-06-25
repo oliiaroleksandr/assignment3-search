@@ -5,14 +5,29 @@
 }
 
 .message {
-  padding-top: 1rem;
-  text-align: center;
   font-weight: 500;
   font-size: 18px;
+  text-align: center;
+  padding-top: 1rem;
 }
 
 .message_error {
   color: red;
 }
 
+.message_loading {
+  color: #ccc;
+}
 
+.message_loading svg {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

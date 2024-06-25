@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { AutocompleteItem } from "../autocompleteItem";
 import { getComments } from "../api";
 import { useCommentsStore } from "@/store";
+import { LoaderCircle } from "@/icons";
 
 import "./AutocompleteList.css";
 
@@ -31,8 +32,16 @@ const AutocompleteList = ({ query }: Props) => {
   });
 
   if (query.length === 0) return <p className="message">Enter search query</p>;
-  if (isLoading) return <p className="message">Loading...</p>;
+
+  if (isLoading)
+    return (
+      <p className="message message_loading">
+        <LoaderCircle />
+      </p>
+    );
+
   if (error) return <p className="message message_error">{error.message}</p>;
+
   if (!comments || comments.length < 1)
     return <p className="message">No comments found</p>;
 

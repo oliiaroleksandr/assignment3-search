@@ -7,6 +7,19 @@
   height: 2.5rem;
   margin-bottom: 0.5rem;
   border-radius: 0.4rem;
+  position: relative;
+}
+
+.autocomplete__input label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 .autocomplete__input input {

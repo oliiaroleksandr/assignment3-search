@@ -1,4 +1,4 @@
-type Comment = {
+export type ApiComment = {
   id: number;
   email: string;
 };
@@ -13,7 +13,7 @@ export const getComments = async (query: string) => {
       throw new Error("Failed to get comments");
     }
 
-    const result: Comment[] = await response.json();
+    const result: ApiComment[] = await response.json();
     return result;
   } catch (error) {
     console.log(error);
